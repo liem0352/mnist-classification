@@ -1,0 +1,32 @@
+# 软件环境构建与安装步骤
+# 适用平台：Windows 11 + Anaconda
+# 说明：以下以 Anaconda 安装在 D:\RJ\ANACONDA3 为例，请根据实际情况修改路径。
+
+# 1. 查询当前已有的 conda 环境
+conda env list
+
+# 2. 创建 Python 3.13 子环境
+#    -p 指定环境存放路径，建议与 Anaconda 安装路径放在一起
+#    如果 D:\RJ\ANACONDA3\envs\py313 已经存在，可跳过此步
+conda create -p D:\RJ\ANACONDA3\envs\py313 python=3.13 -y
+
+# 3. 激活子环境
+#    使用完整路径激活，避免 conda 在自定义路径下找不到环境
+conda activate D:\RJ\ANACONDA3\envs\py313
+
+# 4. 安装 TensorFlow
+#    注意：安装前请先确认 TensorFlow 当前发布的版本是否支持 Python 3.13。
+#          如果官方尚未支持 3.13，建议改用 python=3.11 或 python=3.12 重新创建环境。
+pip install tensorflow -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+# 5. 安装 JupyterLab
+pip install jupyterlab -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+# 6. 安装常用的数据分析和可视化库（按需选择）
+pip install pandas numpy plotly matplotlib scikit-learn -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+# 7. 启动 JupyterLab
+jupyter lab
+
+# 8. 验证关键包是否安装成功
+python -c "import tensorflow, pandas, numpy, plotly, matplotlib, sklearn; print('所有关键包安装成功')"
