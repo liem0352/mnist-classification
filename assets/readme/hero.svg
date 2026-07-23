@@ -1,92 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-labelledby="t d">
-  <title id="t">mnist-classification · MNIST 手写数字分类</title>
-  <desc id="d">基于 Keras/TensorFlow 的神经网络后向传播实现,对比交叉熵与均方误差损失。左侧标题与技术栈,右侧展示多层神经网络结构与损失对比。</desc>
-  <rect width="1200" height="340" rx="22" fill="#0c1018"/>
-  <rect x="0" y="0" width="6" height="340" rx="3" fill="#818cf8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%" role="img" aria-labelledby="heroTitle heroDesc">
+  <title id="heroTitle">MNIST 手写数字分类 — Keras 神经网络与损失函数对比</title>
+  <desc id="heroDesc">研究型 hero：左侧标题块（MNIST 手写数字分类），右侧网络层栈示意图（784 输入 → 256 ReLU → 128 ReLU → 10 Softmax）。</desc>
 
-  <g transform="translate(56,54)" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif">
-    <text x="0" y="0" font-size="15" letter-spacing="4" fill="#818cf8" font-weight="600">DEEP LEARNING · MNIST</text>
-    <text x="0" y="52" font-size="40" font-weight="700" fill="#e2e8f0">MNIST 手写数字分类</text>
-    <text x="0" y="96" font-size="17" fill="#7d899c">Keras 神经网络后向传播实现</text>
-    <text x="0" y="122" font-size="17" fill="#7d899c">交叉熵 vs 均方误差损失对比</text>
+  <defs>
+    <style>
+      .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    </style>
+  </defs>
 
-    <g transform="translate(0,160)" font-size="13.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">
-      <g><rect width="92" height="30" rx="8" fill="none" stroke="#1e2436"/><text x="46" y="20" text-anchor="middle" fill="#9fb0c8">TensorFlow</text></g>
-      <g transform="translate(104,0)"><rect width="76" height="30" rx="8" fill="none" stroke="#1e2436"/><text x="38" y="20" text-anchor="middle" fill="#9fb0c8">Keras</text></g>
-      <g transform="translate(192,0)"><rect width="72" height="30" rx="8" fill="none" stroke="#1e2436"/><text x="36" y="20" text-anchor="middle" fill="#9fb0c8">NumPy</text></g>
-      <g transform="translate(276,0)"><rect width="100" height="30" rx="8" fill="none" stroke="#1e2436"/><text x="50" y="20" text-anchor="middle" fill="#9fb0c8">Matplotlib</text></g>
-      <g transform="translate(388,0)"><rect width="88" height="30" rx="8" fill="none" stroke="#3a2a4a"/><text x="44" y="20" text-anchor="middle" fill="#818cf8">Softmax</text></g>
-    </g>
-    <text x="0" y="236" font-size="13" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" fill="#4d5868">Adam · batch_size=128 · Dropout 0.2 · 10 epochs</text>
+  <!-- 暖白纸面背景 -->
+  <rect x="0" y="0" width="1200" height="380" rx="26" fill="#FAFAF7"/>
+
+  <!-- 左侧：标题块 -->
+  <g transform="translate(56, 40)">
+    <text x="0" y="34" class="mono" font-size="14" fill="#8B8680" letter-spacing="2">DEEP LEARNING · MNIST</text>
+    <text x="0" y="92" class="sans" font-size="44" font-weight="700" fill="#1A1A1A">MNIST 手写数字分类</text>
+    <text x="0" y="128" class="sans" font-size="18" fill="#8B8680">Keras 神经网络 · 反向传播 · 交叉熵 vs 均方误差</text>
+    <text x="0" y="166" class="mono" font-size="14" fill="#8B8680">784 → 256 → 128 → 10 · Adam · batch 128 · 10 epoch</text>
   </g>
 
-  <g transform="translate(712,52)" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif">
-    <text x="0" y="0" font-size="12" letter-spacing="3" fill="#4d5868">NEURAL NETWORK</text>
-
-    <g transform="translate(0,16)">
-      <rect width="420" height="160" rx="12" fill="#11172a" stroke="#1e2436"/>
-
-      <g stroke="#2a3450" stroke-width="0.8" opacity="0.5">
-        <line x1="48" y1="40" x2="156" y2="36"/>
-        <line x1="48" y1="40" x2="156" y2="60"/>
-        <line x1="48" y1="80" x2="156" y2="36"/>
-        <line x1="48" y1="80" x2="156" y2="60"/>
-        <line x1="48" y1="120" x2="156" y2="84"/>
-        <line x1="48" y1="120" x2="156" y2="108"/>
-      </g>
-
-      <g fill="#818cf8" opacity="0.25">
-        <circle cx="48" cy="40" r="4"/><circle cx="48" cy="60" r="4"/><circle cx="48" cy="80" r="4"/>
-        <circle cx="48" cy="100" r="4"/><circle cx="48" cy="120" r="4"/>
-      </g>
-      <text x="48" y="150" text-anchor="middle" font-size="9" fill="#7d899c" font-family="ui-monospace,monospace">784</text>
-      <text x="48" y="28" text-anchor="middle" font-size="9" fill="#7d899c" font-family="ui-monospace,monospace">input</text>
-
-      <g fill="#818cf8">
-        <circle cx="156" cy="36" r="5"/><circle cx="156" cy="60" r="5"/><circle cx="156" cy="84" r="5"/><circle cx="156" cy="108" r="5"/>
-      </g>
-      <text x="156" y="150" text-anchor="middle" font-size="9" fill="#7d899c" font-family="ui-monospace,monospace">256 · ReLU</text>
-
-      <g stroke="#2a3450" stroke-width="0.8" opacity="0.5">
-        <line x1="156" y1="36" x2="264" y2="48"/>
-        <line x1="156" y1="60" x2="264" y2="72"/>
-        <line x1="156" y1="84" x2="264" y2="96"/>
-      </g>
-      <g fill="#818cf8">
-        <circle cx="264" cy="48" r="5"/><circle cx="264" cy="72" r="5"/><circle cx="264" cy="96" r="5"/>
-      </g>
-      <text x="264" y="150" text-anchor="middle" font-size="9" fill="#7d899c" font-family="ui-monospace,monospace">128 · ReLU</text>
-
-      <g stroke="#2a3450" stroke-width="0.8" opacity="0.5">
-        <line x1="264" y1="48" x2="372" y2="72"/>
-        <line x1="264" y1="72" x2="372" y2="72"/>
-        <line x1="264" y1="96" x2="372" y2="72"/>
-      </g>
-      <g fill="#f472b6">
-        <circle cx="372" cy="72" r="7"/>
-      </g>
-      <text x="372" y="150" text-anchor="middle" font-size="9" fill="#7d899c" font-family="ui-monospace,monospace">10 · Softmax</text>
-
-      <path d="M372,72 L400,72" stroke="#f472b6" stroke-width="1.5"/>
-      <text x="404" y="70" font-size="10" fill="#f472b6" font-family="ui-monospace,monospace">0-9</text>
-      <text x="404" y="84" font-size="9" fill="#7d899c" font-family="ui-monospace,monospace">概率分布</text>
+  <!-- 右侧：网络层栈 motif -->
+  <g transform="translate(760, 50)">
+    <!-- Layer 1: INPUT 784 -->
+    <g>
+      <rect x="0" y="0" width="320" height="48" rx="8" fill="#E8E4D9" stroke="#8B8680" stroke-width="1"/>
+      <text x="20" y="22" class="mono" font-size="14" font-weight="600" fill="#1A1A1A">INPUT · 784</text>
+      <text x="20" y="40" class="mono" font-size="12" fill="#8B8680">28×28 展平</text>
     </g>
+    <!-- arrow 1 -->
+    <path d="M 160,48 L 160,56" stroke="#8B8680" stroke-width="1"/>
+    <path d="M 156,56 L 160,60 L 164,56 Z" fill="#8B8680"/>
 
-    <g transform="translate(0,196)">
-      <rect width="204" height="68" rx="9" fill="#1a1226" stroke="#3a2a4a"/>
-      <text x="14" y="22" font-size="12" fill="#818cf8" font-weight="600">交叉熵损失</text>
-      <text x="14" y="40" font-size="10" fill="#7d899c" font-family="ui-monospace,monospace">收敛快 · 准确率高</text>
-      <path d="M14,56 L34,52 L54,44 L74,34 L94,28 L114,24 L134,22 L154,21 L190,20" fill="none" stroke="#818cf8" stroke-width="1.6"/>
-      <text x="190" y="60" font-size="9" fill="#7d899c" text-anchor="end" font-family="ui-monospace,monospace">高</text>
+    <!-- Layer 2: HIDDEN 256 (砖红左标识 = 主任务) -->
+    <g transform="translate(0, 60)">
+      <rect x="0" y="0" width="320" height="48" rx="8" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1"/>
+      <rect x="2" y="2" width="4" height="44" rx="2" fill="#C44536"/>
+      <text x="20" y="22" class="mono" font-size="14" font-weight="600" fill="#1A1A1A">HIDDEN · 256</text>
+      <text x="20" y="40" class="mono" font-size="12" fill="#8B8680">ReLU · Dropout 0.2</text>
     </g>
-    <g transform="translate(216,196)">
-      <rect width="204" height="68" rx="9" fill="#26111c" stroke="#4a2536"/>
-      <text x="14" y="22" font-size="12" fill="#f472b6" font-weight="600">均方误差损失</text>
-      <text x="14" y="40" font-size="10" fill="#7d899c" font-family="ui-monospace,monospace">收敛慢 · 准确率较低</text>
-      <path d="M14,56 L34,54 L54,50 L74,46 L94,42 L114,40 L134,38 L154,37 L190,36" fill="none" stroke="#f472b6" stroke-width="1.6"/>
-      <text x="190" y="60" font-size="9" fill="#7d899c" text-anchor="end" font-family="ui-monospace,monospace">较低</text>
+    <!-- arrow 2 -->
+    <path d="M 160,108 L 160,116" stroke="#8B8680" stroke-width="1"/>
+    <path d="M 156,116 L 160,120 L 164,116 Z" fill="#8B8680"/>
+
+    <!-- Layer 3: HIDDEN 128 -->
+    <g transform="translate(0, 120)">
+      <rect x="0" y="0" width="320" height="48" rx="8" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1"/>
+      <rect x="2" y="2" width="4" height="44" rx="2" fill="#C44536"/>
+      <text x="20" y="22" class="mono" font-size="14" font-weight="600" fill="#1A1A1A">HIDDEN · 128</text>
+      <text x="20" y="40" class="mono" font-size="12" fill="#8B8680">ReLU · Dropout 0.2</text>
+    </g>
+    <!-- arrow 3 -->
+    <path d="M 160,168 L 160,176" stroke="#8B8680" stroke-width="1"/>
+    <path d="M 156,176 L 160,180 L 164,176 Z" fill="#8B8680"/>
+
+    <!-- Layer 4: OUTPUT 10 (深蓝 = MSE 对比锚点) -->
+    <g transform="translate(0, 180)">
+      <rect x="0" y="0" width="320" height="48" rx="8" fill="#2E5C8A" stroke="#2E5C8A" stroke-width="1"/>
+      <text x="20" y="22" class="mono" font-size="14" font-weight="600" fill="#FFFFFF">OUTPUT · 10</text>
+      <text x="20" y="40" class="mono" font-size="12" fill="#E8E4D9">Softmax</text>
     </g>
   </g>
 
-  <text x="56" y="312" font-size="12" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" fill="#4d5868">author: liem · 广东工商职业技术大学 · 深度学习基础与应用</text>
+  <!-- 底部署名 -->
+  <text x="56" y="358" class="mono" font-size="12" fill="#8B8680">TensorFlow 2.x · Keras · 作者 liem · 广东工商职业技术大学</text>
 </svg>
