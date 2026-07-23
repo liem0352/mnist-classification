@@ -1,169 +1,86 @@
-# 深度学习实训项目 - 神经网络后向传播的实现
+<p align="center">
+  <img src="./assets/readme/hero.svg" width="100%" alt="mnist-classification MNIST 手写数字分类,Keras 神经网络后向传播实现">
+</p>
 
-## 项目概述
+# MNIST 手写数字分类
 
-本项目基于Keras高层API实现神经网络的手写数字分类任务，并对比交叉熵损失与均方误差损失对分类性能的影响。
+基于 Keras 高层 API 实现神经网络的手写数字分类任务，并对比交叉熵损失与均方误差损失对分类性能的影响。深度学习基础与应用课程实训项目。
+
+## 模型结构
+
+```
+输入层 784 (28×28 展平)
+   ↓
+隐藏层 1 · 256 · ReLU · Dropout(0.2)
+   ↓
+隐藏层 2 · 128 · ReLU · Dropout(0.2)
+   ↓
+输出层 10 · Softmax
+```
+
+- **前向传播**：`z = W·x + b`，`a = activation(z)`，最终 Softmax 转概率分布
+- **反向传播**：链式法则逐层反向传播梯度，`W = W - lr * gradient`
+- **优化器**：Adam 自适应学习率，`batch_size=128`，验证集监控过拟合
+
+## 任务说明
+
+### 任务一：手写数字分类
+- 加载 MNIST、预处理（归一化、展平、one-hot）
+- Keras Sequential 构建网络，训练 10 epoch、评估、保存加载
+- 训练历史与预测结果可视化
+
+### 任务二：损失函数对比
+
+| 特性 | 交叉熵损失 | 均方误差损失 |
+|------|-----------|-------------|
+| 公式 | -Σ(y·log(ŷ)) | (1/n)·Σ(y-ŷ)² |
+| 适用 | 分类任务 | 回归任务 |
+| 收敛速度 | 快 | 慢 |
+| 最终准确率 | 高 | 较低 |
+| 梯度特性 | 与误差成正比 | 受 Softmax 导数影响 |
 
 ## 项目结构
 
 ```
-.
-├── task1_mnist_keras.py      # 任务一：Keras实现手写数字分类
-├── task2_loss_comparison.py  # 任务二：损失函数对比
-├── test_models.py            # 测试脚本
-├── run_all.py                # 主运行脚本
-├── README.md                 # 项目说明文档
-├── mnist_model.keras         # 训练好的模型（运行后生成）
+├── task1_mnist_keras.py       # 任务一：手写数字分类
+├── task2_loss_comparison.py   # 任务二：损失函数对比
+├── test_models.py             # 测试脚本
+├── run_all.py                 # 主运行脚本（菜单）
+├── mnist_model.keras          # 训练好的模型（运行后生成）
 ├── task1_training_history.png # 训练历史图（运行后生成）
-├── task1_predictions.png     # 预测结果图（运行后生成）
-└── task2_loss_comparison.png # 损失对比图（运行后生成）
-```
-
-## 环境要求
-
-- Python 3.8+
-- TensorFlow 2.x
-- NumPy
-- Matplotlib
-
-## 安装依赖
-
-```bash
-pip install tensorflow numpy matplotlib
+├── task1_predictions.png      # 预测结果图（运行后生成）
+└── task2_loss_comparison.png  # 损失对比图（运行后生成）
 ```
 
 ## 运行方式
 
-### 方式一：运行主脚本（推荐）
-
 ```bash
+# 安装依赖
+pip install tensorflow numpy matplotlib
+
+# 方式一：主脚本（推荐，菜单选择）
 python run_all.py
+
+# 方式二：单独运行
+python task1_mnist_keras.py      # 任务一
+python task2_loss_comparison.py  # 任务二
+python test_models.py            # 测试
 ```
 
-按菜单提示选择要运行的任务。
+## 输出文件
 
-### 方式二：单独运行各任务
-
-**任务一：手写数字分类**
-```bash
-python task1_mnist_keras.py
-```
-
-**任务二：损失函数对比**
-```bash
-python task2_loss_comparison.py
-```
-
-### 方式三：运行测试
-
-```bash
-python test_models.py
-```
-
-## 任务一详细说明
-
-### 功能
-- 加载MNIST手写数字数据集
-- 数据预处理（归一化、展平、one-hot编码）
-- 使用Keras Sequential API构建神经网络
-- 模型编译、训练、评估
-- 模型保存与加载
-- 前向传播与反向传播演示
-- 训练过程可视化
-- 预测结果可视化
-
-### 模型结构
-- 输入层：784个神经元（28x28图像展平）
-- 隐藏层1：256个神经元，ReLU激活，Dropout(0.2)
-- 隐藏层2：128个神经元，ReLU激活，Dropout(0.2)
-- 输出层：10个神经元，Softmax激活
-
-### 运行流程
-1. 加载并预处理数据
-2. 构建神经网络模型
-3. 演示前向传播与反向传播
-4. 训练模型（10个epoch）
-5. 评估模型性能
-6. 保存模型
-7. 加载模型并验证
-8. 可视化训练历史
-9. 可视化预测结果
-
-## 任务二详细说明
-
-### 功能
-- 使用相同网络结构，分别使用交叉熵损失和均方误差损失训练模型
-- 对比两种损失函数的训练效果
-- 输出梯度更新示例
-- 可视化对比结果
-
-### 损失函数对比
-
-| 特性 | 交叉熵损失 | 均方误差损失 |
-|------|-----------|-------------|
-| 公式 | -Σ(y_true * log(y_pred)) | (1/n) * Σ(y_true - y_pred)² |
-| 适用场景 | 分类任务 | 回归任务 |
-| 收敛速度 | 快 | 慢 |
-| 最终准确率 | 高 | 较低 |
-| 梯度特性 | 与误差成正比 | 受Softmax导数影响 |
-
-### 运行流程
-1. 加载并预处理数据
-2. 分析损失函数特性
-3. 使用交叉熵损失训练模型
-4. 使用均方误差损失训练模型
-5. 对比训练结果
-6. 输出交叉熵损失梯度更新示例
-7. 输出均方误差损失梯度更新示例
-8. 可视化对比结果
-
-## 测试结果
-
-运行 `python test_models.py` 可执行以下测试：
-
-1. 数据加载和预处理测试
-2. 模型构建测试
-3. 训练过程测试
-4. 模型保存和加载测试
-5. 预测功能测试
-6. 损失函数对比测试
-7. 梯度计算测试
-
-所有测试均通过验证。
-
-## 输出文件说明
-
-- `mnist_model.keras`: 训练好的MNIST分类模型
-- `task1_training_history.png`: 任务一的训练损失和准确率曲线
-- `task1_predictions.png`: 任务一的预测结果可视化
-- `task2_loss_comparison.png`: 任务二的损失函数对比图
-
-## 技术要点
-
-### 前向传播
-- 数据从输入层经过隐藏层传递到输出层
-- 每层计算：z = W·x + b, a = activation(z)
-- 最终输出经过Softmax转换为概率分布
-
-### 反向传播
-- 计算损失函数对输出的梯度
-- 使用链式法则逐层反向传播梯度
-- 更新权重：W = W - learning_rate * gradient
-
-### 梯度下降
-- 使用Adam优化器自适应调整学习率
-- 批量训练（batch_size=128）提高训练效率
-- 验证集监控防止过拟合
+- `mnist_model.keras`：训练好的分类模型
+- `task1_training_history.png`：训练损失与准确率曲线
+- `task1_predictions.png`：预测结果可视化
+- `task2_loss_comparison.png`：损失函数对比图
 
 ## 注意事项
 
-1. 首次运行会自动下载MNIST数据集（约11MB）
-2. 训练过程可能需要几分钟，请耐心等待
-3. 确保有足够的磁盘空间保存模型和图像
-4. 如遇中文显示问题，请检查系统字体配置
+1. 首次运行自动下载 MNIST 数据集（约 11MB）
+2. 训练需几分钟，请耐心等待
+3. 确保足够磁盘空间保存模型和图像
+4. 中文显示问题请检查系统字体配置
 
-## 作者信息
+---
 
-- 课程：深度学习基础与应用
-- 学校：广东工商职业技术大学
-- 学期：2025-2026学年第2学期
+<p align="center"><sub>作者 liem · 深度学习基础与应用 · 广东工商职业技术大学</sub></p>
