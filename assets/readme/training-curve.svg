@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="100%" role="img" aria-labelledby="curveTitle curveDesc">
+  <title id="curveTitle">训练曲线 - loss 与 accuracy 随 epoch 变化</title>
+  <desc id="curveDesc">双 Y 轴折线图:左轴 loss(0 - 0.4),右轴 accuracy(0.85 - 1.0),横轴 epoch 1-10。砖红为 loss,深蓝为 accuracy,实线为训练集,虚线为验证集。基于典型训练动态的示意曲线。</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    </style>
+  </defs>
+
+  <!-- 暖白背景 -->
+  <rect x="0" y="0" width="1200" height="320" rx="16" fill="#FAFAF7" stroke="#E8E4D9" stroke-width="1"/>
+
+  <!-- 标题 -->
+  <text x="56" y="38" class="sans" font-size="20" font-weight="700" fill="#1A1A1A">训练曲线 · loss / accuracy vs epoch</text>
+  <text x="56" y="58" class="mono" font-size="11" fill="#8B8680">示意曲线 · 基于 Adam / batch 128 / 10 epoch 典型训练动态</text>
+
+  <!-- 绘图区边框 -->
+  <rect x="80" y="80" width="1040" height="200" fill="#FFFFFF" stroke="#E8E4D9" stroke-width="1"/>
+
+  <!-- 网格线(水平,4 等分) -->
+  <g stroke="#F0EDE5" stroke-width="1">
+    <line x1="80" y1="130" x2="1120" y2="130"/>
+    <line x1="80" y1="180" x2="1120" y2="180"/>
+    <line x1="80" y1="230" x2="1120" y2="230"/>
+  </g>
+
+  <!-- 左 Y 轴刻度(loss,砖红) -->
+  <g class="mono" font-size="10" fill="#C44536" text-anchor="end">
+    <text x="74" y="84">0.40</text>
+    <text x="74" y="134">0.30</text>
+    <text x="74" y="184">0.20</text>
+    <text x="74" y="234">0.10</text>
+    <text x="74" y="284">0.00</text>
+  </g>
+  <text x="40" y="180" class="mono" font-size="11" fill="#C44536" transform="rotate(-90 40 180)" text-anchor="middle">loss</text>
+
+  <!-- 右 Y 轴刻度(accuracy,深蓝) -->
+  <g class="mono" font-size="10" fill="#2E5C8A" text-anchor="start">
+    <text x="1126" y="84">1.00</text>
+    <text x="1126" y="134">0.96</text>
+    <text x="1126" y="184">0.92</text>
+    <text x="1126" y="234">0.88</text>
+    <text x="1126" y="284">0.85</text>
+  </g>
+  <text x="1166" y="180" class="mono" font-size="11" fill="#2E5C8A" transform="rotate(90 1166 180)" text-anchor="middle">accuracy</text>
+
+  <!-- X 轴刻度(epoch 1-10) -->
+  <g class="mono" font-size="10" fill="#8B8680" text-anchor="middle">
+    <text x="80" y="298">1</text>
+    <text x="196" y="298">2</text>
+    <text x="311" y="298">3</text>
+    <text x="427" y="298">4</text>
+    <text x="542" y="298">5</text>
+    <text x="658" y="298">6</text>
+    <text x="773" y="298">7</text>
+    <text x="889" y="298">8</text>
+    <text x="1004" y="298">9</text>
+    <text x="1120" y="298">10</text>
+  </g>
+  <text x="600" y="312" class="mono" font-size="11" fill="#8B8680" text-anchor="middle">epoch</text>
+
+  <!-- train_loss(砖红实线) -->
+  <polyline points="80,130 196,218 311,237 427,248 542,255 658,259 773,262 889,265 1004,267 1120,269"
+            fill="none" stroke="#C44536" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- val_loss(砖红虚线) -->
+  <polyline points="80,205 196,229 311,237 427,242 542,243 658,242 773,241 889,239 1004,237 1120,235"
+            fill="none" stroke="#C44536" stroke-width="2" stroke-dasharray="5 4" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- train_acc(深蓝实线) -->
+  <polyline points="80,185 196,120 311,106 427,97 542,92 658,88 773,85 889,84 1004,81 1120,80"
+            fill="none" stroke="#2E5C8A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- val_acc(深蓝虚线) -->
+  <polyline points="80,130 196,111 311,104 427,99 542,98 658,97 773,97 889,97 1004,95 1120,95"
+            fill="none" stroke="#2E5C8A" stroke-width="2" stroke-dasharray="5 4" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- 数据点标记(train_loss 砖红实心圆) -->
+  <g fill="#C44536">
+    <circle cx="80" cy="130" r="2.5"/>
+    <circle cx="196" cy="218" r="2.5"/>
+    <circle cx="311" cy="237" r="2.5"/>
+    <circle cx="542" cy="255" r="2.5"/>
+    <circle cx="773" cy="262" r="2.5"/>
+    <circle cx="1120" cy="269" r="2.5"/>
+  </g>
+  <!-- 数据点标记(train_acc 深蓝实心圆) -->
+  <g fill="#2E5C8A">
+    <circle cx="80" cy="185" r="2.5"/>
+    <circle cx="196" cy="120" r="2.5"/>
+    <circle cx="427" cy="97" r="2.5"/>
+    <circle cx="773" cy="85" r="2.5"/>
+    <circle cx="1120" cy="80" r="2.5"/>
+  </g>
+
+  <!-- 终点标注 -->
+  <text x="1108" y="262" class="mono" font-size="10" fill="#C44536" text-anchor="end">train loss 0.021</text>
+  <text x="1108" y="74" class="mono" font-size="10" fill="#2E5C8A" text-anchor="end">train acc 0.993</text>
+
+  <!-- 图例 -->
+  <g transform="translate(96, 96)" class="mono" font-size="10" fill="#5A5550">
+    <line x1="0" y1="0" x2="18" y2="0" stroke="#C44536" stroke-width="2"/>
+    <text x="24" y="3">train loss</text>
+    <line x1="92" y1="0" x2="110" y2="0" stroke="#C44536" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="116" y="3">val loss</text>
+    <line x1="176" y1="0" x2="194" y2="0" stroke="#2E5C8A" stroke-width="2"/>
+    <text x="200" y="3">train acc</text>
+    <line x1="268" y1="0" x2="286" y2="0" stroke="#2E5C8A" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="292" y="3">val acc</text>
+  </g>
+</svg>

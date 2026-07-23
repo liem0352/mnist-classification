@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%" role="img" aria-labelledby="heroTitle heroDesc">
-  <title id="heroTitle">MNIST 手写数字分类 — Keras 神经网络与损失函数对比</title>
-  <desc id="heroDesc">研究型 hero：左侧标题块（MNIST 手写数字分类），右侧网络层栈示意图（784 输入 → 256 ReLU → 128 ReLU → 10 Softmax）。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" role="img" aria-labelledby="heroTitle heroDesc">
+  <title id="heroTitle">MNIST 手写数字分类 - Keras 神经网络与损失函数对比</title>
+  <desc id="heroDesc">研究型 hero:左侧标题块(MNIST 手写数字分类)与数据徽章(60000 训练 / 10000 测试 / 10 类),右侧网络层栈示意图(784 输入 → 256 ReLU → 128 ReLU → 10 Softmax)。</desc>
 
   <defs>
     <style>
@@ -10,58 +10,70 @@
   </defs>
 
   <!-- 暖白纸面背景 -->
-  <rect x="0" y="0" width="1200" height="380" rx="26" fill="#FAFAF7"/>
+  <rect x="0" y="0" width="1200" height="360" rx="26" fill="#FAFAF7"/>
 
-  <!-- 左侧：标题块 -->
-  <g transform="translate(56, 40)">
-    <text x="0" y="34" class="mono" font-size="14" fill="#8B8680" letter-spacing="2">DEEP LEARNING · MNIST</text>
-    <text x="0" y="92" class="sans" font-size="44" font-weight="700" fill="#1A1A1A">MNIST 手写数字分类</text>
-    <text x="0" y="128" class="sans" font-size="18" fill="#8B8680">Keras 神经网络 · 反向传播 · 交叉熵 vs 均方误差</text>
-    <text x="0" y="166" class="mono" font-size="14" fill="#8B8680">784 → 256 → 128 → 10 · Adam · batch 128 · 10 epoch</text>
+  <!-- 左侧:标题块 -->
+  <g transform="translate(56, 44)">
+    <text x="0" y="20" class="mono" font-size="13" fill="#8B8680" letter-spacing="2">DEEP LEARNING · MNIST</text>
+    <text x="0" y="74" class="sans" font-size="42" font-weight="700" fill="#1A1A1A">MNIST 手写数字分类</text>
+    <text x="0" y="108" class="sans" font-size="17" fill="#5A5550">Keras 神经网络 · 反向传播 · 交叉熵 vs 均方误差</text>
+    <text x="0" y="138" class="mono" font-size="13" fill="#8B8680">784 → 256 → 128 → 10 · Adam · batch 128 · 10 epoch</text>
+
+    <!-- 数据徽章组:真实数据规模 -->
+    <g transform="translate(0, 172)">
+      <rect x="0" y="0" width="150" height="56" rx="8" fill="#FFFFFF" stroke="#E8E4D9" stroke-width="1"/>
+      <text x="14" y="22" class="mono" font-size="11" fill="#8B8680" letter-spacing="1">TRAIN</text>
+      <text x="14" y="44" class="sans" font-size="20" font-weight="700" fill="#1A1A1A">60,000</text>
+
+      <rect x="162" y="0" width="150" height="56" rx="8" fill="#FFFFFF" stroke="#E8E4D9" stroke-width="1"/>
+      <text x="176" y="22" class="mono" font-size="11" fill="#8B8680" letter-spacing="1">TEST</text>
+      <text x="176" y="44" class="sans" font-size="20" font-weight="700" fill="#1A1A1A">10,000</text>
+
+      <rect x="324" y="0" width="110" height="56" rx="8" fill="#FFFFFF" stroke="#E8E4D9" stroke-width="1"/>
+      <text x="338" y="22" class="mono" font-size="11" fill="#8B8680" letter-spacing="1">CLASSES</text>
+      <text x="338" y="44" class="sans" font-size="20" font-weight="700" fill="#C44536">10</text>
+    </g>
   </g>
 
-  <!-- 右侧：网络层栈 motif -->
-  <g transform="translate(760, 50)">
+  <!-- 右侧:网络层栈 motif -->
+  <g transform="translate(740, 50)">
     <!-- Layer 1: INPUT 784 -->
     <g>
-      <rect x="0" y="0" width="320" height="48" rx="8" fill="#E8E4D9" stroke="#8B8680" stroke-width="1"/>
-      <text x="20" y="22" class="mono" font-size="14" font-weight="600" fill="#1A1A1A">INPUT · 784</text>
-      <text x="20" y="40" class="mono" font-size="12" fill="#8B8680">28×28 展平</text>
+      <rect x="0" y="0" width="360" height="48" rx="8" fill="#E8E4D9" stroke="#8B8680" stroke-width="1"/>
+      <text x="20" y="22" class="mono" font-size="13" font-weight="600" fill="#1A1A1A">INPUT · 784</text>
+      <text x="20" y="40" class="mono" font-size="11" fill="#8B8680">28×28 展平</text>
     </g>
-    <!-- arrow 1 -->
-    <path d="M 160,48 L 160,56" stroke="#8B8680" stroke-width="1"/>
-    <path d="M 156,56 L 160,60 L 164,56 Z" fill="#8B8680"/>
+    <path d="M 180,48 L 180,56" stroke="#8B8680" stroke-width="1"/>
+    <path d="M 176,56 L 180,60 L 184,56 Z" fill="#8B8680"/>
 
     <!-- Layer 2: HIDDEN 256 (砖红左标识 = 主任务) -->
     <g transform="translate(0, 60)">
-      <rect x="0" y="0" width="320" height="48" rx="8" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1"/>
+      <rect x="0" y="0" width="360" height="48" rx="8" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1"/>
       <rect x="2" y="2" width="4" height="44" rx="2" fill="#C44536"/>
-      <text x="20" y="22" class="mono" font-size="14" font-weight="600" fill="#1A1A1A">HIDDEN · 256</text>
-      <text x="20" y="40" class="mono" font-size="12" fill="#8B8680">ReLU · Dropout 0.2</text>
+      <text x="20" y="22" class="mono" font-size="13" font-weight="600" fill="#1A1A1A">HIDDEN · 256</text>
+      <text x="20" y="40" class="mono" font-size="11" fill="#8B8680">ReLU · Dropout 0.2 · params 200,960</text>
     </g>
-    <!-- arrow 2 -->
-    <path d="M 160,108 L 160,116" stroke="#8B8680" stroke-width="1"/>
-    <path d="M 156,116 L 160,120 L 164,116 Z" fill="#8B8680"/>
+    <path d="M 180,108 L 180,116" stroke="#8B8680" stroke-width="1"/>
+    <path d="M 176,116 L 180,120 L 184,116 Z" fill="#8B8680"/>
 
     <!-- Layer 3: HIDDEN 128 -->
     <g transform="translate(0, 120)">
-      <rect x="0" y="0" width="320" height="48" rx="8" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1"/>
+      <rect x="0" y="0" width="360" height="48" rx="8" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1"/>
       <rect x="2" y="2" width="4" height="44" rx="2" fill="#C44536"/>
-      <text x="20" y="22" class="mono" font-size="14" font-weight="600" fill="#1A1A1A">HIDDEN · 128</text>
-      <text x="20" y="40" class="mono" font-size="12" fill="#8B8680">ReLU · Dropout 0.2</text>
+      <text x="20" y="22" class="mono" font-size="13" font-weight="600" fill="#1A1A1A">HIDDEN · 128</text>
+      <text x="20" y="40" class="mono" font-size="11" fill="#8B8680">ReLU · Dropout 0.2 · params 32,896</text>
     </g>
-    <!-- arrow 3 -->
-    <path d="M 160,168 L 160,176" stroke="#8B8680" stroke-width="1"/>
-    <path d="M 156,176 L 160,180 L 164,176 Z" fill="#8B8680"/>
+    <path d="M 180,168 L 180,176" stroke="#8B8680" stroke-width="1"/>
+    <path d="M 176,176 L 180,180 L 184,176 Z" fill="#8B8680"/>
 
     <!-- Layer 4: OUTPUT 10 (深蓝 = MSE 对比锚点) -->
     <g transform="translate(0, 180)">
-      <rect x="0" y="0" width="320" height="48" rx="8" fill="#2E5C8A" stroke="#2E5C8A" stroke-width="1"/>
-      <text x="20" y="22" class="mono" font-size="14" font-weight="600" fill="#FFFFFF">OUTPUT · 10</text>
-      <text x="20" y="40" class="mono" font-size="12" fill="#E8E4D9">Softmax</text>
+      <rect x="0" y="0" width="360" height="48" rx="8" fill="#2E5C8A" stroke="#2E5C8A" stroke-width="1"/>
+      <text x="20" y="22" class="mono" font-size="13" font-weight="600" fill="#FFFFFF">OUTPUT · 10</text>
+      <text x="20" y="40" class="mono" font-size="11" fill="#E8E4D9">Softmax · params 1,290</text>
     </g>
   </g>
 
   <!-- 底部署名 -->
-  <text x="56" y="358" class="mono" font-size="12" fill="#8B8680">TensorFlow 2.x · Keras · 作者 liem · 广东工商职业技术大学</text>
+  <text x="56" y="338" class="mono" font-size="11" fill="#8B8680">TensorFlow 2.x · Keras · 作者 liem · 广东工商职业技术大学</text>
 </svg>

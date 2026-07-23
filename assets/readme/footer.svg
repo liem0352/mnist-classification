@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" width="100%" role="img" aria-labelledby="footerTitle footerDesc">
+  <title id="footerTitle">README 签名 - 作者与许可</title>
+  <desc id="footerDesc">README MADE WITH 签名,链接到 beautify-github-readme,右侧为 MIT License 与作者信息。</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    </style>
+  </defs>
+
+  <!-- 暖白背景 -->
+  <rect x="0" y="0" width="1200" height="100" rx="12" fill="#FAFAF7" stroke="#E8E4D9" stroke-width="1"/>
+
+  <!-- 左侧:README MADE WITH 签名 -->
+  <g transform="translate(56, 30)">
+    <rect x="0" y="0" width="4" height="40" rx="2" fill="#C44536"/>
+    <text x="16" y="16" class="mono" font-size="10" fill="#8B8680" letter-spacing="2">README MADE WITH</text>
+    <text x="16" y="36" class="sans" font-size="14" font-weight="700" fill="#1A1A1A">beautify-github-readme</text>
+  </g>
+
+  <!-- 中间分隔 -->
+  <line x1="440" y1="28" x2="440" y2="72" stroke="#E8E4D9" stroke-width="1"/>
+
+  <!-- 中间:License -->
+  <g transform="translate(460, 30)">
+    <text x="0" y="16" class="mono" font-size="10" fill="#8B8680" letter-spacing="2">LICENSE</text>
+    <text x="0" y="36" class="sans" font-size="14" font-weight="700" fill="#1A1A1A">MIT</text>
+  </g>
+
+  <!-- 中间分隔 -->
+  <line x1="600" y1="28" x2="600" y2="72" stroke="#E8E4D9" stroke-width="1"/>
+
+  <!-- 中间:技术栈 -->
+  <g transform="translate(620, 30)">
+    <text x="0" y="16" class="mono" font-size="10" fill="#8B8680" letter-spacing="2">STACK</text>
+    <text x="0" y="36" class="sans" font-size="13" fill="#1A1A1A">TensorFlow 2.x · Keras · NumPy · Matplotlib</text>
+  </g>
+
+  <!-- 右侧:作者 -->
+  <g transform="translate(960, 30)">
+    <text x="180" y="16" class="mono" font-size="10" fill="#8B8680" letter-spacing="2" text-anchor="end">AUTHOR</text>
+    <text x="180" y="36" class="sans" font-size="13" font-weight="700" fill="#1A1A1A" text-anchor="end">liem · 广东工商职业技术大学</text>
+  </g>
+
+  <!-- 底部细线 -->
+  <line x1="56" y1="86" x2="1144" y2="86" stroke="#E8E4D9" stroke-width="1"/>
+  <text x="600" y="96" class="mono" font-size="9" fill="#8B8680" text-anchor="middle">深度学习基础与应用 · MNIST 手写数字分类 · 2024</text>
+</svg>

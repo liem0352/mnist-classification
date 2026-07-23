@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" role="img" aria-labelledby="archTitle archDesc">
+  <title id="archTitle">网络架构 - 四层全连接神经网络</title>
+  <desc id="archDesc">从左到右四列节点:输入层 784、隐藏层 256(ReLU)、隐藏层 128(ReLU)、输出层 10(Softmax),层间稀疏连接示意。</desc>
+
+  <defs>
+    <style>
+      .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    </style>
+  </defs>
+
+  <!-- 暖白背景 -->
+  <rect x="0" y="0" width="1200" height="360" rx="16" fill="#FAFAF7" stroke="#E8E4D9" stroke-width="1"/>
+
+  <!-- 标题 -->
+  <text x="56" y="40" class="sans" font-size="22" font-weight="700" fill="#1A1A1A">网络架构 · 四层全连接</text>
+  <text x="56" y="62" class="mono" font-size="12" fill="#8B8680">784 → 256 → 128 → 10 · 参数总计 235,146</text>
+
+  <!-- 层间连接线(稀疏示意,最底层,浅灰) -->
+  <g stroke="#E8E4D9" stroke-width="0.6" fill="none">
+    <!-- 输入(180) → Hidden1(460) -->
+    <line x1="180" y1="110" x2="460" y2="130"/>
+    <line x1="180" y1="110" x2="460" y2="190"/>
+    <line x1="180" y1="150" x2="460" y2="110"/>
+    <line x1="180" y1="150" x2="460" y2="230"/>
+    <line x1="180" y1="190" x2="460" y2="150"/>
+    <line x1="180" y1="190" x2="460" y2="190"/>
+    <line x1="180" y1="230" x2="460" y2="110"/>
+    <line x1="180" y1="230" x2="460" y2="230"/>
+    <line x1="180" y1="270" x2="460" y2="150"/>
+    <!-- Hidden1(460) → Hidden2(740) -->
+    <line x1="460" y1="110" x2="740" y2="130"/>
+    <line x1="460" y1="110" x2="740" y2="210"/>
+    <line x1="460" y1="150" x2="740" y2="170"/>
+    <line x1="460" y1="190" x2="740" y2="130"/>
+    <line x1="460" y1="190" x2="740" y2="250"/>
+    <line x1="460" y1="230" x2="740" y2="170"/>
+    <line x1="460" y1="270" x2="740" y2="210"/>
+    <!-- Hidden2(740) → Output(1020) -->
+    <line x1="740" y1="130" x2="1020" y2="110"/>
+    <line x1="740" y1="130" x2="1020" y2="190"/>
+    <line x1="740" y1="170" x2="1020" y2="150"/>
+    <line x1="740" y1="170" x2="1020" y2="230"/>
+    <line x1="740" y1="210" x2="1020" y2="130"/>
+    <line x1="740" y1="210" x2="1020" y2="270"/>
+    <line x1="740" y1="250" x2="1020" y2="170"/>
+    <line x1="740" y1="250" x2="1020" y2="250"/>
+  </g>
+
+  <!-- 输入层 784:8 个节点(纸面色,代表 784) -->
+  <g fill="#E8E4D9" stroke="#8B8680" stroke-width="1">
+    <circle cx="180" cy="110" r="7"/>
+    <circle cx="180" cy="150" r="7"/>
+    <circle cx="180" cy="190" r="7"/>
+    <circle cx="180" cy="230" r="7"/>
+    <circle cx="180" cy="270" r="7"/>
+  </g>
+  <text x="180" y="195" class="mono" font-size="11" fill="#8B8680" text-anchor="middle">⋮</text>
+
+  <!-- Hidden1 256:8 个节点(白底,砖红描边 = 主任务) -->
+  <g fill="#FFFFFF" stroke="#C44536" stroke-width="1.4">
+    <circle cx="460" cy="110" r="7"/>
+    <circle cx="460" cy="150" r="7"/>
+    <circle cx="460" cy="190" r="7"/>
+    <circle cx="460" cy="230" r="7"/>
+    <circle cx="460" cy="270" r="7"/>
+  </g>
+
+  <!-- Hidden2 128:6 个节点(白底,砖红描边) -->
+  <g fill="#FFFFFF" stroke="#C44536" stroke-width="1.4">
+    <circle cx="740" cy="130" r="7"/>
+    <circle cx="740" cy="170" r="7"/>
+    <circle cx="740" cy="210" r="7"/>
+    <circle cx="740" cy="250" r="7"/>
+  </g>
+
+  <!-- Output 10:10 个节点(深蓝实心,显示 0-9) -->
+  <g fill="#2E5C8A" stroke="#2E5C8A" stroke-width="1">
+    <circle cx="1020" cy="110" r="8"/>
+    <circle cx="1020" cy="135" r="8"/>
+    <circle cx="1020" cy="160" r="8"/>
+    <circle cx="1020" cy="185" r="8"/>
+    <circle cx="1020" cy="210" r="8"/>
+    <circle cx="1020" cy="235" r="8"/>
+    <circle cx="1020" cy="260" r="8"/>
+  </g>
+  <text x="1020" y="195" class="mono" font-size="11" fill="#2E5C8A" text-anchor="middle">⋮</text>
+
+  <!-- 层标签 -->
+  <g class="mono" font-size="12" fill="#1A1A1A" text-anchor="middle">
+    <text x="180" y="300" font-weight="700">INPUT</text>
+    <text x="180" y="318" fill="#8B8680" font-size="11">784 · 28×28 展平</text>
+
+    <text x="460" y="300" font-weight="700">DENSE</text>
+    <text x="460" y="318" fill="#8B8680" font-size="11">256 · ReLU · Dropout 0.2</text>
+
+    <text x="740" y="300" font-weight="700">DENSE</text>
+    <text x="740" y="318" fill="#8B8680" font-size="11">128 · ReLU · Dropout 0.2</text>
+
+    <text x="1020" y="300" font-weight="700" fill="#2E5C8A">OUTPUT</text>
+    <text x="1020" y="318" fill="#8B8680" font-size="11">10 · Softmax</text>
+  </g>
+
+  <!-- 右上角图例 -->
+  <g transform="translate(990, 36)" class="mono" font-size="10" fill="#8B8680">
+    <circle cx="0" cy="0" r="4" fill="#E8E4D9" stroke="#8B8680" stroke-width="0.8"/>
+    <text x="10" y="3">输入</text>
+    <circle cx="48" cy="0" r="4" fill="#FFFFFF" stroke="#C44536" stroke-width="1"/>
+    <text x="58" y="3">隐藏</text>
+    <circle cx="96" cy="0" r="4" fill="#2E5C8A"/>
+    <text x="106" y="3">输出</text>
+  </g>
+</svg>

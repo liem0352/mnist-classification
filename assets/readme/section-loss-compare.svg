@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 140" width="100%" role="img" aria-labelledby="lossTitle lossDesc">
-  <title id="lossTitle">损失函数对比：交叉熵 vs 均方误差</title>
-  <desc id="lossDesc">左右两栏对比 CE 与 MSE：公式、适用任务、收敛速度、准确率与配合的输出层。</desc>
+  <title id="lossTitle">损失函数对比:交叉熵 vs 均方误差</title>
+  <desc id="lossDesc">左右两栏对比 CE 与 MSE:公式、适用任务、收敛速度、准确率与配合的输出层。</desc>
 
   <defs>
     <style>
@@ -12,24 +12,24 @@
   <!-- 暖白背景 -->
   <rect x="0" y="0" width="1200" height="140" rx="12" fill="#FAFAF7" stroke="#E8E4D9" stroke-width="1"/>
 
-  <!-- 左栏：交叉熵（砖红锚点） -->
+  <!-- 左栏:交叉熵(砖红锚点) -->
   <g transform="translate(56, 28)">
     <rect x="0" y="0" width="4" height="84" rx="2" fill="#C44536"/>
-    <text x="20" y="14" class="mono" font-size="12" fill="#8B8680" letter-spacing="2">CROSS-ENTROPY · 分类</text>
+    <text x="20" y="14" class="mono" font-size="11" fill="#8B8680" letter-spacing="2">CROSS-ENTROPY · 分类</text>
     <text x="20" y="38" class="sans" font-size="20" font-weight="700" fill="#1A1A1A">交叉熵</text>
     <text x="20" y="62" class="mono" font-size="16" fill="#1A1A1A">L = −Σ y · log(ŷ)</text>
-    <text x="20" y="84" class="sans" font-size="13" fill="#8B8680">收敛快 · 准确率高 · 与 Softmax 梯度简洁</text>
+    <text x="20" y="84" class="sans" font-size="13" fill="#5A5550">收敛快 · 准确率高 · 与 Softmax 梯度简洁</text>
   </g>
 
   <!-- 中线分隔 -->
   <line x1="600" y1="28" x2="600" y2="112" stroke="#E8E4D9" stroke-width="1"/>
 
-  <!-- 右栏：均方误差（深蓝锚点） -->
+  <!-- 右栏:均方误差(深蓝锚点) -->
   <g transform="translate(644, 28)">
     <rect x="0" y="0" width="4" height="84" rx="2" fill="#2E5C8A"/>
-    <text x="20" y="14" class="mono" font-size="12" fill="#8B8680" letter-spacing="2">MEAN SQUARED ERROR · 回归</text>
+    <text x="20" y="14" class="mono" font-size="11" fill="#8B8680" letter-spacing="2">MEAN SQUARED ERROR · 回归</text>
     <text x="20" y="38" class="sans" font-size="20" font-weight="700" fill="#1A1A1A">均方误差</text>
     <text x="20" y="62" class="mono" font-size="16" fill="#1A1A1A">L = (1/n) · Σ (y − ŷ)²</text>
-    <text x="20" y="84" class="sans" font-size="13" fill="#8B8680">收敛慢 · 准确率较低 · 饱和区梯度小</text>
+    <text x="20" y="84" class="sans" font-size="13" fill="#5A5550">收敛慢 · 准确率较低 · 饱和区梯度小</text>
   </g>
 </svg>
